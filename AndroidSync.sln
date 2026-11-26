@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidSync", "src\AndroidSync\AndroidSync.csproj", "{A8C1F4E2-3B7D-4E5A-9C1F-8B2E4D6A1F01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidSync.Tests", "tests\AndroidSync.Tests\AndroidSync.Tests.csproj", "{B9D2E5F3-4C8E-4F6B-8D2E-9C3F5E7B2A02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8C1F4E2-3B7D-4E5A-9C1F-8B2E4D6A1F01}.Debug|x64.ActiveCfg = Debug|x64
+		{A8C1F4E2-3B7D-4E5A-9C1F-8B2E4D6A1F01}.Debug|x64.Build.0 = Debug|x64
+		{A8C1F4E2-3B7D-4E5A-9C1F-8B2E4D6A1F01}.Release|x64.ActiveCfg = Release|x64
+		{A8C1F4E2-3B7D-4E5A-9C1F-8B2E4D6A1F01}.Release|x64.Build.0 = Release|x64
+		{B9D2E5F3-4C8E-4F6B-8D2E-9C3F5E7B2A02}.Debug|x64.ActiveCfg = Debug|x64
+		{B9D2E5F3-4C8E-4F6B-8D2E-9C3F5E7B2A02}.Debug|x64.Build.0 = Debug|x64
+		{B9D2E5F3-4C8E-4F6B-8D2E-9C3F5E7B2A02}.Release|x64.ActiveCfg = Release|x64
+		{B9D2E5F3-4C8E-4F6B-8D2E-9C3F5E7B2A02}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

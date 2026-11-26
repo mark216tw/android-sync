@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Com.AndroidSync.App.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <NavigationView
+        x:Name="RootNavView"
+        Background="{ThemeResource AppWindowBackgroundBrush}"
+        IsBackButtonVisible="Collapsed"
+        IsSettingsVisible="False"
+        PaneDisplayMode="LeftCompact"
+        SelectionChanged="RootNavView_SelectionChanged">
+        <NavigationView.MenuItems>
+            <NavigationViewItem
+                x:Name="NavDevicesItem"
+                x:Uid="NavDevices"
+                Tag="devices"
+                Icon="CellPhone"
+                AutomationProperties.Name="裝置連線" />
+            <NavigationViewItem
+                x:Name="NavMirrorItem"
+                x:Uid="NavMirror"
+                Tag="mirror"
+                Icon="Play"
+                AutomationProperties.Name="畫面同步" />
+        </NavigationView.MenuItems>
+        <NavigationView.FooterMenuItems>
+            <NavigationViewItem
+                x:Name="NavSettingsItem"
+                x:Uid="NavSettings"
+                Tag="settings"
+                Icon="Setting"
+                AutomationProperties.Name="設定" />
+        </NavigationView.FooterMenuItems>
+
+        <Frame x:Name="ContentFrame" />
+    </NavigationView>
+</Window>

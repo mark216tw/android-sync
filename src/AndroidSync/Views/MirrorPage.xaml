@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Com.AndroidSync.App.Views.MirrorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Padding="12" RowSpacing="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+                <TextBlock
+                    Text="{x:Bind ViewModel.ActiveDeviceName, Mode=OneWay}"
+                    Style="{StaticResource SubtitleTextBlockStyle}" />
+                <TextBlock
+                    Text="{x:Bind ViewModel.ResolutionLabel, Mode=OneWay}"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    VerticalAlignment="Center" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" ColumnSpacing="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Border
+                x:Name="VideoContainer"
+                Grid.Column="0"
+                AllowDrop="True"
+                DragOver="VideoContainer_DragOver"
+                Drop="VideoContainer_Drop"
+                Background="{ThemeResource AppVideoContainerBackgroundBrush}"
+                BorderBrush="{ThemeResource AppCardBorderBrush}"
+                BorderThickness="1"
+                CornerRadius="{StaticResource AppCardCornerRadius}"
+                SizeChanged="VideoContainer_SizeChanged">
+                <ContentControl
+                    x:Name="KeyboardInputHost"
+                    IsTabStop="True"
+                    HorizontalContentAlignment="Stretch"
+                    VerticalContentAlignment="Stretch"
+                    PreviewKeyDown="KeyboardInputHost_PreviewKeyDown"
+                    PreviewKeyUp="KeyboardInputHost_PreviewKeyUp"
+                    CharacterReceived="KeyboardInputHost_CharacterReceived"
+                    LostFocus="KeyboardInputHost_LostFocus">
+                    <Grid>
+                        <SwapChainPanel
+                            x:Name="MirrorSwapChainPanel"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Visibility="{x:Bind ViewModel.IsConnected, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                            CompositionScaleChanged="MirrorSwapChainPanel_CompositionScaleChanged"
+                            PointerPressed="MirrorSwapChainPanel_PointerPressed"
+                            PointerMoved="MirrorSwapChainPanel_PointerMoved"
+                            PointerReleased="MirrorSwapChainPanel_PointerReleased"
+                            PointerCanceled="MirrorSwapChainPanel_PointerCanceled"
+                            PointerWheelChanged="MirrorSwapChainPanel_PointerWheelChanged" />
+
+                        <Border
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="12"
+                            Padding="10,6"
+                            CornerRadius="6"
+                            Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
+                            BorderBrush="{ThemeResource AppCardBorderBrush}"
+                            BorderThickness="1"
+                            IsHitTestVisible="False"
+                            Visibility="{x:Bind ViewModel.IsHudVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <TextBlock
+                                Text="{x:Bind ViewModel.HudSummary, Mode=OneWay}"
+                                Style="{StaticResource CaptionTextBlockStyle}"
+                                FontFamily="Consolas" />
+                        </Border>
+
+                        <StackPanel
+                            Visibility="{x:Bind ViewModel.IsDisconnected, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Spacing="8"
+                            Padding="24">
+                            <FontIcon Glyph="&#xE8EA;" FontSize="48" HorizontalAlignment="Center" />
+                            <TextBlock x:Uid="MirrorEmptyTitle" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Center" />
+                            <TextBlock
+                                x:Uid="MirrorEmptySubtitle"
+                                Style="{StaticResource BodyTextBlockStyle}"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                TextWrapping="Wrap"
+                                TextAlignment="Center" />
+                        </StackPanel>
+
+                        <StackPanel
+                            Visibility="{x:Bind ViewModel.IsConnecting, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Spacing="12">
+                            <ProgressRing IsActive="{x:Bind ViewModel.IsConnecting, Mode=OneWay}" Width="44" Height="44" />
+                            <TextBlock x:Uid="MirrorConnectingText" Style="{StaticResource BodyTextBlockStyle}" />
+                        </StackPanel>
+
+                        <StackPanel
+                            Visibility="{x:Bind ViewModel.IsReconnecting, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Spacing="12">
+                            <ProgressRing IsActive="{x:Bind ViewModel.IsReconnecting, Mode=OneWay}" Width="44" Height="44" />
+                            <TextBlock x:Uid="MirrorReconnectingText" Style="{StaticResource BodyTextBlockStyle}" />
+                        </StackPanel>
+
+                        <InfoBar
+                            VerticalAlignment="Top"
+                            Margin="16"
+                            Severity="Error"
+                            IsOpen="{x:Bind ViewModel.HasError, Mode=OneWay}"
+                            Visibility="{x:Bind ViewModel.HasError, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                            IsClosable="False"
+                            Message="{x:Bind ViewModel.ErrorMessage, Mode=OneWay}" />
+
+                        <InfoBar
+                            x:Name="StatusToastBar"
+                            VerticalAlignment="Bottom"
+                            Margin="16"
+                            Severity="Informational"
+                            IsOpen="{x:Bind ViewModel.HasStatusBanner, Mode=OneWay}"
+                            Visibility="{x:Bind ViewModel.HasStatusBanner, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                            IsClosable="True"
+                            Closed="StatusToastBar_Closed"
+                            Message="{x:Bind ViewModel.StatusBannerMessage, Mode=OneWay}" />
+                    </Grid>
+                </ContentControl>
+            </Border>
+
+            <Border
+                Grid.Column="1"
+                Style="{StaticResource AppCardBorderStyle}"
+                Padding="4"
+                VerticalAlignment="Center">
+                <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel Spacing="4">
+                        <StackPanel.Resources>
+                            <Style TargetType="FontIcon">
+                                <Setter Property="FontSize" Value="14" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <Button
+                            x:Uid="ToolbarBack"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Command="{x:Bind ViewModel.SendBackCommand}"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="返回">
+                            <FontIcon Glyph="&#xE72B;" />
+                        </Button>
+                        <Button
+                            x:Uid="ToolbarHome"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Command="{x:Bind ViewModel.SendHomeCommand}"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="主畫面">
+                            <FontIcon Glyph="&#xE80F;" />
+                        </Button>
+                        <Button
+                            x:Uid="ToolbarRecents"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Command="{x:Bind ViewModel.SendRecentsCommand}"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="最近應用程式">
+                            <FontIcon Glyph="&#xE737;" />
+                        </Button>
+
+                        <Border Style="{StaticResource AppToolbarSeparatorStyle}" />
+
+                        <Button
+                            x:Uid="ToolbarVolUp"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Command="{x:Bind ViewModel.SendVolumeUpCommand}"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="音量增加">
+                            <FontIcon Glyph="&#xE995;" />
+                        </Button>
+                        <Button
+                            x:Uid="ToolbarVolDown"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Command="{x:Bind ViewModel.SendVolumeDownCommand}"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="音量降低">
+                            <FontIcon Glyph="&#xE993;" />
+                        </Button>
+                        <Button
+                            x:Uid="ToolbarMute"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Command="{x:Bind ViewModel.ToggleAudioMuteCommand}"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="切換電腦音訊靜音">
+                            <FontIcon Glyph="{x:Bind ViewModel.AudioMuteGlyph, Mode=OneWay}" />
+                        </Button>
+
+                        <Border Style="{StaticResource AppToolbarSeparatorStyle}" />
+
+                        <Button
+                            x:Uid="ToolbarScreenshot"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Click="ScreenshotButton_Click"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="擷取手機畫面截圖">
+                            <FontIcon Glyph="&#xE722;" />
+                        </Button>
+                        <Button
+                            x:Uid="ToolbarPower"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Command="{x:Bind ViewModel.SendPowerCommand}"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="電源鍵">
+                            <FontIcon Glyph="&#xE7E8;" />
+                        </Button>
+                        <Button
+                            x:Uid="ToolbarScreenOff"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Command="{x:Bind ViewModel.ToggleScreenPowerCommand}"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="切換手機息屏同步">
+                            <FontIcon Glyph="&#xE706;" />
+                        </Button>
+                        <Button
+                            x:Uid="ToolbarRotate"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Command="{x:Bind ViewModel.RotateDeviceCommand}"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="旋轉畫面">
+                            <FontIcon Glyph="&#xE7AD;" />
+                        </Button>
+
+                        <Border Style="{StaticResource AppToolbarSeparatorStyle}" />
+
+                        <Button
+                            x:Uid="ToolbarAlwaysOnTop"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Click="AlwaysOnTopButton_Click"
+                            AutomationProperties.Name="視窗最上層顯示">
+                            <FontIcon Glyph="{x:Bind ViewModel.PinGlyph, Mode=OneWay}" />
+                        </Button>
+                        <Button
+                            x:Uid="ToolbarCompactMode"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Click="CompactModeButton_Click"
+                            AutomationProperties.Name="切換精簡視窗模式">
+                            <FontIcon Glyph="{x:Bind ViewModel.CompactGlyph, Mode=OneWay}" />
+                        </Button>
+                        <Button
+                            x:Uid="ToolbarFitWindow"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Click="FitWindowButton_Click"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="視窗貼合手機比例">
+                            <FontIcon Glyph="&#xE9A6;" />
+                        </Button>
+                        <Button
+                            x:Uid="ToolbarHud"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Command="{x:Bind ViewModel.ToggleHudCommand}"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="切換效能資訊 HUD">
+                            <FontIcon Glyph="&#xE9D9;" />
+                        </Button>
+
+                        <Border Style="{StaticResource AppToolbarSeparatorStyle}" />
+
+                        <Button
+                            x:Uid="ToolbarDisconnect"
+                            Style="{StaticResource AppToolbarIconButtonStyle}"
+                            Command="{x:Bind ViewModel.DisconnectCommand}"
+                            IsEnabled="{x:Bind ViewModel.IsConnected, Mode=OneWay}"
+                            AutomationProperties.Name="中斷同步連線">
+                            <FontIcon Glyph="&#xE711;" />
+                        </Button>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

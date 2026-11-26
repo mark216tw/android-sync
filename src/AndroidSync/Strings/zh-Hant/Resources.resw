@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Android同步</value>
+  </data>
+  <data name="NavDevices.Content" xml:space="preserve">
+    <value>裝置連線</value>
+  </data>
+  <data name="NavMirror.Content" xml:space="preserve">
+    <value>畫面同步</value>
+  </data>
+  <data name="NavSettings.Content" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="DevicePageTitle.Text" xml:space="preserve">
+    <value>Android 裝置連線管理</value>
+  </data>
+  <data name="RefreshDevicesButton.Content" xml:space="preserve">
+    <value>重新掃描裝置</value>
+  </data>
+  <data name="ConnectedDevicesHeader.Text" xml:space="preserve">
+    <value>已偵測裝置（USB / Wi-Fi）</value>
+  </data>
+  <data name="EmptyDevicesTitle.Text" xml:space="preserve">
+    <value>尚未偵測到 Android 裝置</value>
+  </data>
+  <data name="EmptyDevicesSubtitle.Text" xml:space="preserve">
+    <value>請以 USB 連接手機並開啟「USB 偵錯」，或在右側使用 Wi-Fi 無線連線。</value>
+  </data>
+  <data name="WirelessConnectHeader.Text" xml:space="preserve">
+    <value>Wi-Fi 無線連線</value>
+  </data>
+  <data name="WirelessHostBox.Header" xml:space="preserve">
+    <value>手機 IP 位址</value>
+  </data>
+  <data name="WirelessPortBox.Header" xml:space="preserve">
+    <value>連線連接埠</value>
+  </data>
+  <data name="WirelessConnectButton.Content" xml:space="preserve">
+    <value>連線裝置</value>
+  </data>
+  <data name="WirelessPairHeader.Text" xml:space="preserve">
+    <value>Android 11+ 無線偵錯配對</value>
+  </data>
+  <data name="PairPortBox.Header" xml:space="preserve">
+    <value>配對連接埠</value>
+  </data>
+  <data name="PairCodeBox.Header" xml:space="preserve">
+    <value>6 位數配對碼</value>
+  </data>
+  <data name="WirelessPairButton.Content" xml:space="preserve">
+    <value>執行配對</value>
+  </data>
+  <data name="SavedWirelessHeader.Text" xml:space="preserve">
+    <value>常用無線裝置</value>
+  </data>
+  <data name="StartMirrorButton.Content" xml:space="preserve">
+    <value>開始同步</value>
+  </data>
+  <data name="SwitchWirelessButton.Content" xml:space="preserve">
+    <value>轉無線</value>
+  </data>
+  <data name="MirrorEmptyTitle.Text" xml:space="preserve">
+    <value>尚未啟動畫面同步</value>
+  </data>
+  <data name="MirrorEmptySubtitle.Text" xml:space="preserve">
+    <value>請先至「裝置連線」選擇一台已授權的 Android 手機並點擊「開始同步」。</value>
+  </data>
+  <data name="MirrorConnectingText.Text" xml:space="preserve">
+    <value>正在建立同步連線與初始化視訊解碼器…</value>
+  </data>
+  <data name="MirrorReconnectingText.Text" xml:space="preserve">
+    <value>串流意外中斷，正在嘗試自動重連…</value>
+  </data>
+  <data name="ToolbarScreenshot.ToolTipService.ToolTip" xml:space="preserve">
+    <value>擷取手機截圖（儲存 PNG 並複製到剪貼簿）</value>
+  </data>
+  <data name="ToolbarAlwaysOnTop.ToolTipService.ToolTip" xml:space="preserve">
+    <value>視窗最上層顯示（釘選）</value>
+  </data>
+  <data name="ToolbarCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>切換精簡浮動視窗模式</value>
+  </data>
+  <data name="ToolbarFitWindow.ToolTipService.ToolTip" xml:space="preserve">
+    <value>視窗自動貼合手機畫面比例</value>
+  </data>
+  <data name="ToolbarHud.ToolTipService.ToolTip" xml:space="preserve">
+    <value>顯示／隱藏即時效能 HUD</value>
+  </data>
+  <data name="ToolbarBack.ToolTipService.ToolTip" xml:space="preserve">
+    <value>返回（滑鼠右鍵）</value>
+  </data>
+  <data name="ToolbarHome.ToolTipService.ToolTip" xml:space="preserve">
+    <value>主畫面（滑鼠中鍵）</value>
+  </data>
+  <data name="ToolbarRecents.ToolTipService.ToolTip" xml:space="preserve">
+    <value>最近應用程式</value>
+  </data>
+  <data name="ToolbarVolUp.ToolTipService.ToolTip" xml:space="preserve">
+    <value>音量增加</value>
+  </data>
+  <data name="ToolbarVolDown.ToolTipService.ToolTip" xml:space="preserve">
+    <value>音量降低</value>
+  </data>
+  <data name="ToolbarMute.ToolTipService.ToolTip" xml:space="preserve">
+    <value>切換電腦播放靜音</value>
+  </data>
+  <data name="ToolbarPower.ToolTipService.ToolTip" xml:space="preserve">
+    <value>電源鍵</value>
+  </data>
+  <data name="ToolbarScreenOff.ToolTipService.ToolTip" xml:space="preserve">
+    <value>切換手機息屏同步</value>
+  </data>
+  <data name="ToolbarRotate.ToolTipService.ToolTip" xml:space="preserve">
+    <value>旋轉畫面</value>
+  </data>
+  <data name="ToolbarDisconnect.ToolTipService.ToolTip" xml:space="preserve">
+    <value>中斷同步連線</value>
+  </data>
+  <data name="SettingsPageTitle.Text" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="SettingsAppearanceHeader.Text" xml:space="preserve">
+    <value>外觀與主題</value>
+  </data>
+  <data name="SettingsDisplayModeCombo.Header" xml:space="preserve">
+    <value>顯示模式</value>
+  </data>
+  <data name="DisplayModeSystem.Content" xml:space="preserve">
+    <value>跟隨系統</value>
+  </data>
+  <data name="DisplayModeLight.Content" xml:space="preserve">
+    <value>淺色模式</value>
+  </data>
+  <data name="DisplayModeDark.Content" xml:space="preserve">
+    <value>深色模式</value>
+  </data>
+  <data name="SettingsColorThemeCombo.Header" xml:space="preserve">
+    <value>主題配色</value>
+  </data>
+  <data name="ColorThemeClassicBlue.Content" xml:space="preserve">
+    <value>經典藍</value>
+  </data>
+  <data name="ColorThemeEyeCareYellow.Content" xml:space="preserve">
+    <value>黃色護眼</value>
+  </data>
+  <data name="ColorThemeForestGreen.Content" xml:space="preserve">
+    <value>森林綠</value>
+  </data>
+  <data name="ColorThemeTwilightPurple.Content" xml:space="preserve">
+    <value>暮色紫</value>
+  </data>
+  <data name="ColorThemeNeutralGray.Content" xml:space="preserve">
+    <value>中性灰</value>
+  </data>
+  <data name="SettingsToolsHeader.Text" xml:space="preserve">
+    <value>外部工具路徑</value>
+  </data>
+  <data name="SettingsAdbPathBox.Header" xml:space="preserve">
+    <value>adb.exe 路徑（留空自動偵測）</value>
+  </data>
+  <data name="SettingsScrcpyPathBox.Header" xml:space="preserve">
+    <value>scrcpy-server 路徑（留空自動偵測 Tools/scrcpy-server）</value>
+  </data>
+  <data name="SettingsScrcpyVersionBox.Header" xml:space="preserve">
+    <value>scrcpy-server 版本號（須與檔案版本一致，預設 5.0.1）</value>
+  </data>
+  <data name="SettingsStreamHeader.Text" xml:space="preserve">
+    <value>同步畫質與串流參數</value>
+  </data>
+  <data name="SettingsMaxSizeBox.Header" xml:space="preserve">
+    <value>最大邊解析度（0 表示原畫質）</value>
+  </data>
+  <data name="SettingsBitrateBox.Header" xml:space="preserve">
+    <value>視訊位元率（Mbps）</value>
+  </data>
+  <data name="SettingsMaxFpsBox.Header" xml:space="preserve">
+    <value>最大影格率（FPS）</value>
+  </data>
+  <data name="SettingsStayAwakeToggle.Header" xml:space="preserve">
+    <value>同步期間保持手機喚醒</value>
+  </data>
+  <data name="SettingsTurnScreenOffToggle.Header" xml:space="preserve">
+    <value>開始同步時自動關閉手機螢幕</value>
+  </data>
+  <data name="SettingsSyncClipboardToggle.Header" xml:space="preserve">
+    <value>啟用電腦與手機雙向剪貼簿同步</value>
+  </data>
+  <data name="SettingsEnableAudioToggle.Header" xml:space="preserve">
+    <value>同步播放手機音訊（Android 11 以上）</value>
+  </data>
+  <data name="SettingsCompressedAudioToggle.Header" xml:space="preserve">
+    <value>使用 AAC 壓縮音訊串流（省 90% Wi-Fi 頻寬）</value>
+  </data>
+  <data name="SettingsVideoCodecCombo.Header" xml:space="preserve">
+    <value>視訊編碼格式</value>
+  </data>
+  <data name="VideoCodecH264.Content" xml:space="preserve">
+    <value>H.264（相容性最佳）</value>
+  </data>
+  <data name="VideoCodecH265.Content" xml:space="preserve">
+    <value>H.265 / HEVC（高畫質省頻寬，需系統支援）</value>
+  </data>
+  <data name="SettingsAutoReconnectToggle.Header" xml:space="preserve">
+    <value>串流意外中斷時自動嘗試重連</value>
+  </data>
+  <data name="SettingsShowHudToggle.Header" xml:space="preserve">
+    <value>預設顯示即時效能資訊（FPS／延遲／位元率）</value>
+  </data>
+  <data name="SettingsSaveButton.Content" xml:space="preserve">
+    <value>儲存設定</value>
+  </data>
+</root>

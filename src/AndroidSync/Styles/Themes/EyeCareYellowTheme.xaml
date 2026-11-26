@@ -1,0 +1,32 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <Color x:Key="SystemAccentColor">#FFB4690E</Color>
+            <SolidColorBrush x:Key="AccentFillColorDefaultBrush" Color="#FFB4690E" />
+            <SolidColorBrush x:Key="AccentFillColorSecondaryBrush" Color="#FF9A580B" />
+            <SolidColorBrush x:Key="AccentFillColorTertiaryBrush" Color="#FF7D4608" />
+            <SolidColorBrush x:Key="TextOnAccentFillColorPrimaryBrush" Color="#FFFFFFFF" />
+            <SolidColorBrush x:Key="AccentTextFillColorPrimaryBrush" Color="#FF8F520A" />
+            <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="#FFB4690E" />
+            <SolidColorBrush x:Key="AppWindowBackgroundBrush" Color="#FFF7F1DC" />
+            <SolidColorBrush x:Key="AppCardBackgroundBrush" Color="#FFFCF8EA" />
+            <SolidColorBrush x:Key="AppCardBorderBrush" Color="#FFE4D6AE" />
+            <SolidColorBrush x:Key="AppVideoContainerBackgroundBrush" Color="#FFEDE4C7" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <Color x:Key="SystemAccentColor">#FFE8B35A</Color>
+            <SolidColorBrush x:Key="AccentFillColorDefaultBrush" Color="#FFE8B35A" />
+            <SolidColorBrush x:Key="AccentFillColorSecondaryBrush" Color="#FFD8A147" />
+            <SolidColorBrush x:Key="AccentFillColorTertiaryBrush" Color="#FFC08B35" />
+            <SolidColorBrush x:Key="TextOnAccentFillColorPrimaryBrush" Color="#FF1E1A12" />
+            <SolidColorBrush x:Key="AccentTextFillColorPrimaryBrush" Color="#FFF0C477" />
+            <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="#FFE8B35A" />
+            <SolidColorBrush x:Key="AppWindowBackgroundBrush" Color="#FF211E17" />
+            <SolidColorBrush x:Key="AppCardBackgroundBrush" Color="#FF2B271E" />
+            <SolidColorBrush x:Key="AppCardBorderBrush" Color="#FF423B2D" />
+            <SolidColorBrush x:Key="AppVideoContainerBackgroundBrush" Color="#FF191711" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>
